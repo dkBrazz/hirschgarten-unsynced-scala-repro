@@ -1,0 +1,13 @@
+package(default_visibility = ["//visibility:public"])
+
+load(":scala_toolchain.bzl", "fake_scala_toolchain")
+
+toolchain_type(name = "toolchain_type")
+
+fake_scala_toolchain(name = "fake_scala_toolchain_impl")
+
+toolchain(
+    name = "fake_scala_toolchain",
+    toolchain = ":fake_scala_toolchain_impl",
+    toolchain_type = ":toolchain_type",
+)

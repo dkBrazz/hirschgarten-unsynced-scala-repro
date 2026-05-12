@@ -1,1 +1,11 @@
+load(":fake_scala_rules.bzl", "fake_scalac")
+
 exports_files(["fake_scala_rules.bzl"])
+
+fake_scalac(
+    name = "fake_scalac",
+    srcs = [
+        "scala-compiler-2.13.12.jar",
+        "scala-library-2.13.12.jar",
+    ],
+)

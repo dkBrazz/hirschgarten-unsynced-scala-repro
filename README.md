@@ -36,3 +36,6 @@ bazel build --nobuild //:sync-repro_test //test/com/acme/synced:syncing
 ```
 
 The two queries show that Bazel owns both files. The build command shows only the sibling target is analyzed because the root generated target is filtered out by `--build_tag_filters`.
+
+
+Note: this repo uses fake Scala rules plus a fake local `@io_bazel_rules_scala` toolchain. The toolchain only exists so Hirschgarten receives Scala SDK metadata during sync; no real Scala compilation is performed.
