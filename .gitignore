@@ -1,0 +1,17 @@
+# Bazel
+/bazel-*
+.bazelrc.user
+.serena
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# macOS
+.DS_Store
+
+# Misc
+*.log

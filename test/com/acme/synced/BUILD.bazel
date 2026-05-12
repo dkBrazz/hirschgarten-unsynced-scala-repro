@@ -1,0 +1,24 @@
+load("//tools:fake_scala_rules.bzl", "scala_junit_test", "scala_library")
+
+package(default_visibility = ["//visibility:public"])
+
+filegroup(
+    name = "sources",
+    srcs = glob(["*.scala"]),
+)
+
+scala_library(
+    name = "syncing",
+    testonly = True,
+    srcs = [":sources"],
+    tags = ["UT"],
+)
+
+scala_junit_test(
+    name = "syncing_test_runner",
+    testonly = True,
+    suite_class = "io.bazel.rulesscala.specs2.Specs2DiscoveredTestSuite",
+    tags = ["UT"],
+    tests_from = [":syncing"],
+    runtime_deps = [":syncing"],
+)

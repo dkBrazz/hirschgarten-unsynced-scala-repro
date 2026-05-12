@@ -1,0 +1,7 @@
+common --noenable_bzlmod
+common --enable_workspace
+
+# This is the reproducer: Hirschgarten now preserves existing build tag filters
+# for the aspect build. The generated parent target is tagged no-index/no-tool,
+# so it is skipped during sync, while the sibling package target is not.
+build --build_tag_filters=-no-index,-no-tool

@@ -1,0 +1,8 @@
+load("//tools:fake_scala_rules.bzl", "generated_specs2_unit_test")
+
+package(default_visibility = ["//visibility:public"])
+
+generated_specs2_unit_test(
+    name = "sync-repro",
+    srcs = glob(["test/com/acme/**/*.scala"]),
+)
